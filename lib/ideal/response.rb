@@ -219,20 +219,18 @@ module Ideal
     end
 
     # Returns the bankaccount number when the transaction was successful.
-    def consumer_account_number
-      text('//consumerAccountNumber')
-    end
-
-    # Returns the name on the bankaccount of the customer when the 
-    # transaction was successful.
     def consumer_name
       text('//consumerName')
     end
 
-    # Returns the city on the bankaccount of the customer when the
-    # transaction was successful.
-    def consumer_city
-      text('//consumerCity')
+    # Returns the consumers IBAN
+    def consumerIBAN
+      text('//consumerIBAN')
+    end
+
+    # Returns the consumers BIC
+    def consumerBIC
+      text('//consumerBIC')
     end
 
     private
