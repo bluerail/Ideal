@@ -193,12 +193,12 @@ end
 class PaymentsController < ActionController::Base
   def create
     payment = Payment.create(params[:payment].merge(
-      :price_in_cents => 1000,                  # €10.00 in cents
+      :amount => 100,                           # €100.00
       :return_url => payment_url(payment),      # This is where the customer will be returned to
       :description => 'A Dutch windmill'        # This will end up on the customer's bank statement (max 32 ASCII chars)
     ))
     
-    response = ideal.setup_purchase(payment.price_in_cents, payment.ideal_attributes)
+    response = ideal.setup_purchase(payment.amount, payment.ideal_attributes)
     if response.success?
       payment.transaction_id = response.transaction_id
       payment.status = 'pending'

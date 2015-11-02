@@ -145,7 +145,7 @@ module Ideal
     end
 
     # Starts a purchase by sending an acquirer transaction request for the
-    # specified +money+ amount in EURO cents.
+    # specified +money+ amount in EURO with two decimals
     #
     # On success returns an TransactionResponse with the #transaction_id
     # which is needed for the capture step. (See capture for an example.)
